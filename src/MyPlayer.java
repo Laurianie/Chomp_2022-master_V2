@@ -10,10 +10,18 @@ public class MyPlayer {
 //            for (int i: values){
 //                System.out.println(i);
 
-        for (int f = 1; f <= 3; f++){
-            for (int s = 0; s <= f; s++){
-                for (int t = 0; t <= s; t++){
-                        System.out.println(f + "," + s + "," + t);
+//        for (int f = 1; f <= 3; f++){
+//            for (int s = 0; s <= f; s++){
+//                for (int t = 0; t <= s; t++){
+//                        System.out.println(f + "," + s + "," + t);
+//                }
+//            }
+//        }
+
+        for (int a = 1; a <= 3; a++){
+            for (int b = 0; b <= a; b++){
+                for (int c = b; c <= b; c++){
+                    System.out.println( a + "" + b + "" + c);
                 }
             }
         }
