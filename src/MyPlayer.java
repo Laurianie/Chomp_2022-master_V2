@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MyPlayer {
     public Chip[][] gameBoard;
@@ -6,25 +7,37 @@ public class MyPlayer {
 
     public MyPlayer() {
         columns = new int[10];
-//        int[]values = {100,110,111,200,210,211,220,221,222,300,310,311,320,321,322,330,331,332,333};
-//            for (int i: values){
-//                System.out.println(i);
 
+//    ArrayList<int[]> boards = new ArrayList<int[]>();
 //        for (int f = 1; f <= 3; f++){
 //            for (int s = 0; s <= f; s++){
 //                for (int t = 0; t <= s; t++){
-//                        System.out.println(f + "," + s + "," + t);
-//                }
-//            }
-//        }
+//                        System.out.println(f + "" + s + "" + t);
+//                        int [] board3x3 = {f,s,t};
+//                }}}
 
-        for (int a = 1; a <= 3; a++){
-            for (int b = 0; b <= a; b++){
-                for (int c = b; c <= b; c++){
-                    System.out.println( a + "" + b + "" + c);
-                }
-            }
+
+        System.out.println("333 BOARD PRINT OUTS");
+        for (int c = 3; c>=0; c--) {
+            int a = 3;
+            int b = 3;
+            System.out.println(a + "" + b + "" + c);
         }
+
+        for (int b = 2; b >= 0;b--){
+            int a = 3;
+            int c = b;
+            System.out.println(a + "" + b + "" + c);
+        }
+
+        for (int a = 2; a>= 1; a--){
+            int b = a;
+            int c = a;
+            System.out.println(a + "" + b + "" + c);
+        }
+
+
+
 
 
 
