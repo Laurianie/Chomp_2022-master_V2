@@ -17,24 +17,42 @@ public class MyPlayer {
 //                }}}
 
 
-        System.out.println("333 BOARD PRINT OUTS");
-        for (int c = 3; c>=0; c--) {
-            int a = 3;
-            int b = 3;
-            System.out.println(a + "" + b + "" + c);
-        }
+//        System.out.println("333 BOARD PRINT OUTS");
+//        for (int c = 3; c>=0; c--) {
+//            int a = 3;
+//            int b = 3;
+//            System.out.println(a + "" + b + "" + c);
+//        }
+//
+//        for (int b = 2; b >= 0;b--){
+//            int a = 3;
+//            int c = b;
+//            System.out.println(a + "" + b + "" + c);
+//        }
+//
+//        for (int a = 2; a>= 1; a--){
+//            int b = a;
+//            int c = a;
+//            System.out.println(a + "" + b + "" + c);
+//        }
 
-        for (int b = 2; b >= 0;b--){
-            int a = 3;
-            int c = b;
-            System.out.println(a + "" + b + "" + c);
-        }
+        ArrayList<Integer> winBoards = new ArrayList<Integer>();
+         winBoards.add(110);
+         winBoards.add(111);
+         winBoards.add(200);
+         winBoards.add(220);
+         winBoards.add(222);
+         winBoards.add(300);
+         winBoards.add(311);
+         winBoards.add(321);
+         winBoards.add(322);
+         winBoards.add(330);
+         winBoards.add(331);
+         winBoards.add(333);
+         System.out.println(winBoards);
 
-        for (int a = 2; a>= 1; a--){
-            int b = a;
-            int c = a;
-            System.out.println(a + "" + b + "" + c);
-        }
+
+        
 
 
 
