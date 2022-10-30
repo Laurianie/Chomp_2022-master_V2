@@ -4,58 +4,40 @@ import java.util.ArrayList;
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
+    public static void main(String[] args) {
+        generatePossibleBoards();
+    }
+    static void generatePossibleBoards() {
+        ArrayList<Integer> results = new ArrayList<>();
+        int a;
+        int b;
+        int c;
+        for (a = 3; a >= 1; a = a--){
+        }
+        for (b = 3; b >= 0; b = b--){
+            if (b < 0){
+                b = a;
+            }
+        }
+        for (c = 3; c >= 0; c--){
+            if (c < 0){
+                c = b;
+            }
+        }
+        System.out.println(a+""+""+b+""+c);
+    }
 
     public MyPlayer() {
         columns = new int[10];
-
-//    ArrayList<int[]> boards = new ArrayList<int[]>();
-//        for (int f = 1; f <= 3; f++){
-//            for (int s = 0; s <= f; s++){
-//                for (int t = 0; t <= s; t++){
-//                        System.out.println(f + "" + s + "" + t);
-//                        int [] board3x3 = {f,s,t};
-//                }}}
-
-
-//        System.out.println("333 BOARD PRINT OUTS");
-//        for (int c = 3; c>=0; c--) {
-//            int a = 3;
-//            int b = 3;
-//            System.out.println(a + "" + b + "" + c);
+//        ArrayList<int[]> allBoards = new ArrayList<>();
+//        for (int f = 1; f <= 3; f++) {
+//            for (int s = 0; s <= f; s++) {
+//                for (int t = 0; t <= s; t++) {
+//                    System.out.println(f + "" + s + "" + t);
+//                    int[] board3x3 = {f, s, t};
+//                }
+//            }
 //        }
-//
-//        for (int b = 2; b >= 0;b--){
-//            int a = 3;
-//            int c = b;
-//            System.out.println(a + "" + b + "" + c);
-//        }
-//
-//        for (int a = 2; a>= 1; a--){
-//            int b = a;
-//            int c = a;
-//            System.out.println(a + "" + b + "" + c);
-//        }
-
-        ArrayList<Integer> winBoards = new ArrayList<Integer>();
-         winBoards.add(110);
-         winBoards.add(111);
-         winBoards.add(200);
-         winBoards.add(220);
-         winBoards.add(222);
-         winBoards.add(300);
-         winBoards.add(311);
-         winBoards.add(321);
-         winBoards.add(322);
-         winBoards.add(330);
-         winBoards.add(331);
-         winBoards.add(333);
-         System.out.println(winBoards);
-
-
-        
-
-
-
 
 
 
@@ -64,6 +46,7 @@ public class MyPlayer {
          * Add your code here.
          */
     }
+
 
     public Point move(Chip[][] pBoard) {
 
