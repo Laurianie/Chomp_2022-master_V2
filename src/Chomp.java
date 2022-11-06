@@ -126,6 +126,7 @@ public class Chomp implements Runnable, MouseListener {
         }
     }
 
+
     public void render() {
         Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
         g.clearRect(0, 0, WIDTH, HEIGHT);

@@ -4,48 +4,41 @@ import java.util.ArrayList;
 public class MyPlayer {
     public Chip[][] gameBoard;
     public int[] columns;
-    public static void main(String[] args) {
-        generatePossibleBoards();
-    }
-    static void generatePossibleBoards() {
-        ArrayList<Integer> results = new ArrayList<>();
-        int a;
-        int b;
-        int c;
-        for (a = 3; a >= 1; a = a--){
-        }
-        for (b = 3; b >= 0; b = b--){
-            if (b < 0){
-                b = a;
-            }
-        }
-        for (c = 3; c >= 0; c--){
-            if (c < 0){
-                c = b;
-            }
-        }
-        System.out.println(a+""+""+b+""+c);
-    }
+
 
     public MyPlayer() {
         columns = new int[10];
-//        ArrayList<int[]> allBoards = new ArrayList<>();
-//        for (int f = 1; f <= 3; f++) {
-//            for (int s = 0; s <= f; s++) {
-//                for (int t = 0; t <= s; t++) {
-//                    System.out.println(f + "" + s + "" + t);
-//                    int[] board3x3 = {f, s, t};
-//                }
-//            }
-//        }
+        ArrayList<int[]> allBoards = new ArrayList<>();
+        for (int f = 1; f <= 3; f++) {
+            for (int s = 0; s <= f; s++) {
+                for (int t = 0; t <= s; t++) {
+                    System.out.println("board: " + f + "" + s + "" + t);
+                    generatePossibleBoards(f,s,t);
 
-
+                }
+            }
+        }
 
         /***
          * This code will run just once, when the game opens.
          * Add your code here.
          */
     }
+
+    public void generatePossibleBoards(int f, int s, int t) {
+        System.out.println("results: ");
+        for (int c = 0; c <= t; c++){
+            System.out.println(f+""+s+""+c);
+        }
+        for (int b = 0; b <= s; b++){
+            System.out.println(f+""+b+""+t);
+        }
+        for (int a = 1; a <= f; a++){
+            System.out.println(a+""+s+""+t);
+        }
+
+    }
+
 
 
     public Point move(Chip[][] pBoard) {
