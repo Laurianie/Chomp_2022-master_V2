@@ -26,14 +26,23 @@ public class MyPlayer {
     }
 
     public void generatePossibleBoards(int f, int s, int t) {
-        System.out.println("results: ");
-        for (int c = 0; c <= t; c++){
+        System.out.println("vv results vv ");
+        for (int c = t; c >= 0; c--){
             System.out.println(f+""+s+""+c);
         }
-        for (int b = 0; b <= s; b++){
+        for (int b = s; b >=0; b--){
+            if (b < t){
+                t = b;
+            }
             System.out.println(f+""+b+""+t);
         }
-        for (int a = 1; a <= f; a++){
+        for (int a = f; a >= 0; a--){
+            if (a < s){
+                s = t;
+            }
+            if (a < t){
+                t = a;
+            }
             System.out.println(a+""+s+""+t);
         }
 
