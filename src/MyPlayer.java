@@ -27,18 +27,26 @@ public class MyPlayer {
 
     public void generatePossibleBoards(int f, int s, int t) {
         System.out.println("vv results vv ");
-        for (int c = t; c >= 0; c--){
+        int x = f;
+        int y = s;
+        int z = t;
+        // x,y, and z are storing the original values of f,s,and t so that when boards like 111 and 222 need to be printed, we can refer to original values of
+        //f,s,and t rather than the the changed values of f,s,and t
+        for (int c = t-1; c >= 0; c--){
             System.out.println(f+""+s+""+c);
         }
-        for (int b = s; b >=0; b--){
+        for (int b = s-1; b >=0; b--){
             if (b < t){
                 t = b;
             }
             System.out.println(f+""+b+""+t);
         }
-        for (int a = f; a >= 0; a--){
+        t = z;
+        // f-1 (same for s-1 and t-1) allow the actual board not to be reprinted because the "-1" subtracts that number (3,2, or 1)
+        // after all of the boards requiring that number have already been printed
+        for (int a = f-1; a >= 1; a--){
             if (a < s){
-                s = t;
+                s = a;
             }
             if (a < t){
                 t = a;
