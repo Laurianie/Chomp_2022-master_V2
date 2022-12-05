@@ -11,35 +11,12 @@ public class MyPlayer {
 
     public MyPlayer() {
 
-        int [] firstLB = new int[3];
-        firstLB [0] = 1;
-        firstLB [1] = 0;
-        firstLB [2] = 0;
-        loseBoards.add(firstLB);
+        int [] LB = new int[3];
+        LB [0] = 1;
+        LB [1] = 0;
+        LB [2] = 0;
+        loseBoards.add(LB);
 
-        int[] secondLB = new int[3];
-        secondLB [0] = 2;
-        secondLB [1] = 1;
-        secondLB [2] = 0;
-        loseBoards.add(secondLB);
-
-        int[] thirdLB = new int[3];
-        thirdLB [0] = 2;
-        thirdLB [1] = 2;
-        thirdLB [2] = 1;
-        loseBoards.add(thirdLB);
-
-        int[] fourthLB = new int[3];
-        fourthLB [0] = 3;
-        fourthLB [1] = 1;
-        fourthLB [2] = 1;
-        loseBoards.add(fourthLB);
-
-        int[] fifthLB = new int[3];
-        fifthLB [0] = 3;
-        fifthLB [1] = 2;
-        fifthLB [2] = 0;
-        loseBoards.add(fifthLB);
 
         columns = new int[10];
         for (int f = 1; f <= 3; f++) {
@@ -63,46 +40,28 @@ public class MyPlayer {
         int y = s;
         int z = t;
         // x,y, and z are storing the original values of f,s,and t so that when boards like 111 and 222 need to be printed, we can refer to original values of
-        //f,s,and t rather than the the changed values of f,s,and t
+        //f,s,and t rather than the changed values of f,s,and t
 
         for (int c = t-1; c >= 0; c--){
-            System.out.println(f+""+s+""+c);
-            if (c == loseBoards.get(0)[2] && s == loseBoards.get(0)[1] && f == loseBoards.get(0)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (c == loseBoards.get(1)[2] && s == loseBoards.get(1)[1] && f == loseBoards.get(1)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (c == loseBoards.get(2)[2] && s == loseBoards.get(2)[1] && f == loseBoards.get(2)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (c == loseBoards.get(3)[2] && s == loseBoards.get(3)[1] && f == loseBoards.get(3)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (c == loseBoards.get(4)[2] && s == loseBoards.get(4)[1] && f == loseBoards.get(4)[0]){
+            for (int k = 0; k < loseBoards.size(); k++ ){ //here "k" allows me to loop between the 5 different arrays instead of having to write an if statement for each
+            if (c == loseBoards.get(k)[2] && s == loseBoards.get(k)[1] && f == loseBoards.get(k)[0]){
                 System.out.print("LOSE--> ");
             }
         }
-        for (int b = s-1; b >=0; b--){
-            if (b < t){
+            System.out.println(f+""+s+""+c);
+
+        }
+        for (int b = s-1; b >=0; b--) {
+            if (b < t) {
                 t = b;
             }
+            for(int k = 0; k < loseBoards.size(); k++){
+            if (b == loseBoards.get(k)[1] && t == loseBoards.get(k)[2] && f == loseBoards.get(k)[0]) {
+                System.out.print("LOSE--> ");
+            }
+        }
             System.out.println(f+""+b+""+t);
-            if (b == loseBoards.get(0)[1] && t == loseBoards.get(0)[2] && f ==loseBoards.get(0)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (b == loseBoards.get(1)[1] && t == loseBoards.get(1)[2] && f ==loseBoards.get(1)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (b == loseBoards.get(2)[1] && t == loseBoards.get(2)[2] && f ==loseBoards.get(2)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (b == loseBoards.get(3)[1] && t == loseBoards.get(3)[2] && f ==loseBoards.get(3)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (b == loseBoards.get(4)[1] && t == loseBoards.get(4)[2] && f ==loseBoards.get(4)[0]){
-                System.out.print("LOSE--> ");
-            }
+
         }
         t = z;
         // f-1 (same for s-1 and t-1) allow the actual board not to be reprinted because the "-1" subtracts that number (3,2, or 1)
@@ -115,39 +74,15 @@ public class MyPlayer {
             if (a < t){
                 t = a;
             }
-            System.out.println(a+""+s+""+t);
-            if (t == loseBoards.get(0)[2] && s == loseBoards.get(0)[1] && a == loseBoards.get(0)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (t == loseBoards.get(1)[2] && s == loseBoards.get(1)[1] && a == loseBoards.get(1)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (t == loseBoards.get(2)[2] && s == loseBoards.get(2)[1] && a == loseBoards.get(2)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (t == loseBoards.get(3)[2] && s == loseBoards.get(3)[1] && a == loseBoards.get(3)[0]){
-                System.out.print("LOSE--> ");
-            }
-            if (t == loseBoards.get(4)[2] && s == loseBoards.get(4)[1] && a == loseBoards.get(4)[0]){
+            for(int k = 0; k < loseBoards.size(); k++){
+            if (t == loseBoards.get(k)[2] && s == loseBoards.get(k)[1] && a == loseBoards.get(k)[0]){
                 System.out.print("LOSE--> ");
             }
         }
-//        int[] LB = new int[5];
-//        LB[0] = 100;
-//        LB[1] = 210;
-//        LB[2] = 221;
-//        LB[3] = 311;
-//        LB[4] = 320;
-//        loseBoards.add(LB);
-//
-//        for (int cycle = 0; cycle <= LB.length - 1; cycle++){
-//            System.out.print("This is a losing board: ");
-//            System.out.println(LB[cycle]);
-//        }
+            System.out.println(a+""+s+""+t);
+        }
 
     }
-
-
 
     public Point move(Chip[][] pBoard) {
 
