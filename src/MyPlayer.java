@@ -6,19 +6,11 @@ public class MyPlayer {
     public int[] columns;
     ArrayList<int[]> allBoards = new ArrayList<int[]>();
     ArrayList<int[]> loseBoards = new ArrayList<int[]>();
-//    public boolean isLB = false;
+    boolean isLB = false;
+
 
 
     public MyPlayer() {
-
-        int [] LB = new int[3];
-        LB [0] = 1;
-        LB [1] = 0;
-        LB [2] = 0;
-        loseBoards.add(LB);
-
-
-
         columns = new int[10];
         for (int f = 1; f <= 3; f++) {
             for (int s = 0; s <= f; s++) {
@@ -40,19 +32,19 @@ public class MyPlayer {
         int x = f;
         int y = s;
         int z = t;
+
         // x,y, and z are storing the original values of f,s,and t so that when boards like 111 and 222 need to be printed, we can refer to original values of
         //f,s,and t rather than the changed values of f,s,and t
-
 
         for (int c = t-1; c >= 0; c--){
             for (int k = 0; k < loseBoards.size(); k++ ){ //here "k" allows me to loop between the 5 different arrays instead of having to write an if statement for each
             if (c == loseBoards.get(k)[2] && s == loseBoards.get(k)[1] && f == loseBoards.get(k)[0]){
-                boolean isLB = true;
-                if (isLB){
-                    System.out.print("LOSE --> ");
-                }
+                System.out.print("LOSE --> ");
+                coordSnatcher(f, s, t, f, s, c);
+                isLB = true;
             }
         }
+            coordSnatcher(f, s, t, f, s, c);
             System.out.println(f+""+s+""+c);
         }
         for (int b = s-1; b >=0; b--) {
@@ -61,12 +53,12 @@ public class MyPlayer {
             }
             for(int k = 0; k < loseBoards.size(); k++){
             if (b == loseBoards.get(k)[1] && t == loseBoards.get(k)[2] && f == loseBoards.get(k)[0]) {
-                boolean isLB = true;
-                if (isLB){
-                    System.out.print("LOSE --> ");
-                }
+                System.out.print("LOSE --> ");
+                coordSnatcher(f, s, t, f, b, t);
+                isLB = true;
             }
         }
+            coordSnatcher(f, s, t, f, b, t);
             System.out.println(f+""+b+""+t);
         }
         t = z;
@@ -80,16 +72,39 @@ public class MyPlayer {
             if (a < t){
                 t = a;
             }
-            for(int k = 0; k < loseBoards.size(); k++){
-            if (t == loseBoards.get(k)[2] && s == loseBoards.get(k)[1] && a == loseBoards.get(k)[0]){
-                boolean isLB = true;
-                if (isLB){
+            for(int k = 0; k < loseBoards.size(); k++) {
+                if (t == loseBoards.get(k)[2] && s == loseBoards.get(k)[1] && a == loseBoards.get(k)[0]) {
                     System.out.print("LOSE --> ");
+                    coordSnatcher(f, s, t, a, s, t);
+                    isLB = true;
                 }
             }
-        }
+            coordSnatcher(f, s, t, a, s, t);
             System.out.println(a+""+s+""+t);
         }
+        if (isLB == false){ //if we have not found a loseBoard in the result/possible boards, then it is a loseBoard
+            int [] LB = new int[3];
+            LB [0] = f;
+            LB [1] = s;
+            LB [2] = t;
+            loseBoards.add(LB);
+        }
+    }
+
+    public void coordSnatcher(int f, int s, int t, int a , int b, int c){
+        if (f - a == 0){
+            if (s - b == 0){
+                if (t - c != 0){
+                    System.out.println("c: " + 2  + " r: " + c);
+                }
+            } else{
+                System.out.println("c: " + 1  + " r: " + b);
+            }
+        }
+        else{
+            System.out.println("c: " + 0 + " r: " + a);
+        }
+
 
     }
 
